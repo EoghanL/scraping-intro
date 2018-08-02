@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
-from .base import BaseStoreLocationWebdriverScraper
+from src.engine.scrapers.base import BaseStoreLocationWebdriverScraper
 from src.engine.models import StoreLocation, Merchant
 
 
@@ -23,7 +23,6 @@ class TJMaxxScraper(BaseStoreLocationWebdriverScraper):
             self.persist_stores()
             print('Complete')
         except Exception as e:
-            import pdb; pdb.set_trace()
             print(e)
         self.driver.close()
 
@@ -33,7 +32,7 @@ class TJMaxxScraper(BaseStoreLocationWebdriverScraper):
         merchant, created = Merchant.objects.get_or_create(name=merchant_name)
 
         for zipcode in self.zipcodes[::10]:
-            self.driver.get(self.base_url)                                      # Tells Selenium to load up our base_url found above 
+            self.driver.get(self.base_url)                                      # Tells Selenium to load up our base_url found above
             self.get_stores_by_zipcode(zipcode)
             try:
                 self.driver.find_element_by_css_selector('div.alert')

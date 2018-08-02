@@ -46,7 +46,9 @@ THIRD_PARTY_LIBS = [
 ]
 
 PROJECT_LIBS = [
-    'src.core_auth',
+    'src.area',
+    'src.engine',
+    'src.core_auth'
 ]
 
 INSTALLED_APPS = THIRD_PARTY_LIBS + DJANGO_APPS + PROJECT_LIBS
@@ -128,3 +130,8 @@ RQ_QUEUES = {
         'DEFAULT_TIMEOUT': 500,
     },
 }
+
+GOOGLE_GEOCODE_API_KEY = os.environ.get('GOOGLE_GEOCODE_API_KEY', "")
+
+GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN')
+CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH')

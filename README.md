@@ -77,14 +77,14 @@ These requests usually come in two main formats:
       Changing these can reduce the number of requests you need to make or give you more accurate results to name a couple of outcomes.
       We can see an example of this type of request here - https://www.rei.com/rest/stores?retail=true&dist=7500&limit=1500&visible=true&lat=39.82832&long=-98.5795'
       Feel free to drop the above link directly into your address bar and try messing around with the query params. See what kind of different responses you get!
-      The full scraper can be found in `./scraper_examples/rei_scraper.py`
+      The full scraper can be found in `project/src/engine/scrapers/rei_scraper.py`
 
   2.) The second type of request that falls into this category uses form data and headers in place of query params and requires a bit more work to implement.
       First, the network tab must be used to find a request made to the API you are trying to query.
       From there you can check grab the url, request headers, and form data.
       Lastly, you must use the `requests` library to structure your request in a way that will be accepted by the API.
       Sounds tedious, thankfully the Postman app has made this process a breeze. Check the screencast in the videos section to see an example of how this works.
-      A full scraper can be found in `./scraper_examples/advanced_auto_parts_scraper.py`
+      A full scraper can be found in `project/src/engine/scrapers/advanced_auto_parts_scraper.py`
 
 **Parsing Content with BeautifulSoup**
 
@@ -93,13 +93,13 @@ Regardless of which way we are using this method we rely on the BeautifulSoup li
 
   1.) The first, and slightly trickier type of request to parse is one that uses scripts.
       The data is grabbed by using the `requests` library to load the response and then parse the information we need out of the script.
-      An example of this can be seen in `./scraper_examples/hardees_scraper`
+      An example of this can be seen in `project/src/engine/scrapers/hardees_scraper`
       https://maps.ckr.com/stores/search?brand=hardees&q=11104&brand_id=1
 
   2.) The second is where a static HTML page is loaded and we want to parse data from it.
       This functions similarly to the above example but is easier to implement due to the fact that we don't have to do as much string manipulation to get the data we want.
       Rather than looking for script tags we convert the response to a BeautifulSoup object which then allows us to query it for specific elements.
-      An example of this can be seen in `./scraper_examples/dq_scraper`
+      An example of this can be seen in `project/src/engine/scrapers/dq_scraper`
 
   Notes: You've probably noticed that these two scrapers are not that different from each other in their implementation.
          This can be misleading because the processes for extracting the data we need are quite distinct.
@@ -119,7 +119,7 @@ Some reasons behind Selenium's learning curve:
       a modal on the page causing the page to become non-interactive until the modal is closed.
   3.) All of the above errors will require some logic coded into your scraper to handle and can cause a large increase in dev time.
 
-An example of this can be found in `./scrapers/tj_maxx_scraper`
+An example of this can be found in `project/src/engine/scrapers/tj_maxx_scraper`
 
 ## When to Use What
 
@@ -142,11 +142,11 @@ Lastly, and if all of the above fail, you'll be required to use Selenium as your
 
 Here you'll see the standard first step of research for any new scraper. Is there a request we can find that returns the exact data?
 In this case we got lucky and there was, even though it took some clicking and digging to find. You'll also see that I check most JSON formatted responses because
-that is typically what will have what you're looking for.
+that is typically what will contain what you're looking for.
 
 ### Form Data API Request
 
-Let's say you've found the URL you want but there are no query params or when you copy and paste said link into your browser it returns a 404 or nothing at all.
+Let's say you've found the URL you want but there are no query params or when you copy and paste said link into your address bar it returns a 404 or nothing at all.
 This could mean that this a request that queries the API based on form data. Check out the screencast below for an easy way to handle these types of URLs.
 
 [Sending Headers and Form Data with Postman Interceptor](https://drive.google.com/file/d/1Fic6iyeTCpqLpiRbBXzBQQeOjbra2YTm/view)
@@ -156,8 +156,10 @@ This could mean that this a request that queries the API based on form data. Che
 
 ### Script Parsing
 
-A good way to quickly check if what you're looking for is returned in any format is through the CMD + F function that lets you search the responses from
-requests in Chrome's Dev Tools.
+If the above method has yielded no viable results the second step is to look for the information you're looking for in either pure HTML format or loaded
+by a script.
+A good way to quickly check if what you're looking for is returned in those formats is through the CMD + F function that lets you search the content of
+responses in Chrome's Dev Tools.
 
 [Searching for Parsable Scripts](https://drive.google.com/file/d/18V-JBmu9QrCGT7oxumw8kbg4TaXUM-4i/view)
 

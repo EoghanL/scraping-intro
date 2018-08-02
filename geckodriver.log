@@ -1,0 +1,20 @@
+1533225291086	geckodriver	INFO	geckodriver 0.21.0
+1533225291111	geckodriver	INFO	Listening on 127.0.0.1:50698
+1533225292103	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/4l/6bys8q4n06qdcfcbgq0tpdd80000gn/T/rust_mozprofile.3fxN4tKYir5o"
+2018-08-02 15:54:54.246 plugin-container[7798:5961715] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2018-08-02 15:54:55.328 plugin-container[7799:5961766] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x833f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1533225295569	Marionette	INFO	Listening on port 50713
+1533225295574	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1533225374082	geckodriver	INFO	geckodriver 0.21.0
+1533225374088	geckodriver	INFO	Listening on 127.0.0.1:51188
+1533225375103	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/4l/6bys8q4n06qdcfcbgq0tpdd80000gn/T/rust_mozprofile.zY4iCp8S4aB0"
+2018-08-02 15:56:16.494 plugin-container[7864:5967742] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x6b03, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1533225377159	Marionette	INFO	Listening on port 51203
+1533225377251	Marionette	WARN	TLS certificate errors will be ignored for this session
+2018-08-02 15:56:17.627 plugin-container[7866:5967835] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x7043, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
