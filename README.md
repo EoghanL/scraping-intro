@@ -152,8 +152,6 @@ This could mean that this a request that queries the API based on form data. Che
 
 [Postman Interceptor Chrome Extension](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo?hl=en)
 
-**Parsing Content with BeautifulSoup**
-
 ### Script Parsing
 
 If the above method has yielded no viable results the second step is to look for the information you're looking for in either pure HTML format or loaded
