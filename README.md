@@ -3,12 +3,11 @@
 ## Dev Setup
 0. Clone this repo: `git clone git@github.com:simplefractal/fractal-django-genie.git`;
 1. Rename the cloned directory to your project name, create a new repo on GitHub with the same name, change the local git origin to point to the new repo and the push.
-2. Inside this new repo, erase this README so it will lose this current text;
-3. Create a virtualenv for Python 3.5: `mkvirtualenv {{ VIRTUAL_ENV_NAME }} -p /usr/bin/python3.5`;
-4. Copy default postactivate: `cp contrib/proj_postactivate $VIRTUAL_ENV/bin/postactivate`;
-5. Edit `$VIRTUAL_ENV/bin/postactivate` for you custom env config (e.g. update DATABASE_URL) and re-run the `workon` command;
+3. Create a virtualenv for Python 3.5: `mkvirtualenv scraping-intro -p /usr/bin/python3.5`;
+4. Copy default postactivate: `cp contrib/proj_postactivate scraping-intro/bin/postactivate`;
+5. Edit `scraping-intro/bin/postactivate` for you custom env config (e.g. update DATABASE_URL) and re-run the `workon` command;
 6. Install the packages: `pip install -r dev-requirements.txt`;
-7. Create postgres db: `createdb {{ DATABASE_NAME }}`;
+7. Create postgres db: `createdb scraping_intro`;
 8. Install redis ([click here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis) if you're using Ubuntu)
 9. Migrations: `python project/manage.py migrate`
 
@@ -181,8 +180,6 @@ Here are links to documentation for a few of the libraries mentioned above.
 [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 [Selenium](http://selenium-python.readthedocs.io/)
-
-
 
 ## Conclusion
 
