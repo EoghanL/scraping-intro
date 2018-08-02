@@ -1,0 +1,15 @@
+.Python
+.DS_Store
+active.py
+*.pyc
+.idea/*
+tests_media/*
+naomi_tmp/
+*.cache
+*.env
+pip-selfcheck.json
+bin/
+include/
+lib/
+share/
+*.swp

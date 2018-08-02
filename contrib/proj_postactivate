@@ -1,0 +1,7 @@
+export DEBUG="Ok"
+export APP_HOST="*"
+export FRONTEND_APP_HOST="*"
+export DATABASE_URL="postgres://postgres:postgres@localhost:5432/fractal_db"  # format postgres://USER:PASSWORD@HOST:PORT/NAME
+export SECRET_KEY=")o^)hz(mfo^6sg-8)%7rbjez$l4ti8oc0q=@mp$p-rx80nxoqy"
+export EMAIL_BACKEND="naomi.mail.backends.naomi.NaomiBackend"
+export STATICFILES_STORAGE="django.contrib.staticfiles.storage.StaticFilesStorage"
