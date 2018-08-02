@@ -5,9 +5,11 @@ from pathlib import Path
 from pyzipcode import ZipCodeDatabase
 from selenium import webdriver
 
-from models import Merchant, StoreLocation
-from constants import ALL_ZIPCODES as ZIPS
-from area.models import Area
+from django.conf import settings
+
+from src.engine.models import Merchant, StoreLocation
+from src.engine.constants import ALL_ZIPCODES as ZIPS
+from src.area.models import Area
 
 # Removes SubjectAltNameWarning on SSL proxy requests
 urllib3.disable_warnings(urllib3.exceptions.SecurityWarning)
@@ -21,10 +23,8 @@ class BaseStoreLocationScraper(object):
         'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36",
         'accept': "application/json"
     }
-    use_proxy = False
 
     def __init__(self, zipstart=None, zipend=None, only_unscraped_zips=False):
-        self.set_proxies()
         self.zipcodes = ZIPS
 
         if zipstart:
@@ -39,18 +39,6 @@ class BaseStoreLocationScraper(object):
             five_digit_zips = [zipcode.split('-')[0] for zipcode in unique_zips if zipcode]
 
             self.zipcodes = sorted(list(set(self.zipcodes).difference(five_digit_zips)))
-
-    def set_proxies(self):
-        if self.use_proxy:
-            proxy_host = "proxy.crawlera.com"
-            proxy_port = "8010"
-            proxy_auth = f'{settings.CRAWLERA_API_KEY}:' # Make sure to include ':' at the end
-            self.proxies = {
-                "https": "https://{}@{}:{}/".format(proxy_auth, proxy_host, proxy_port),
-                "http": "http://{}@{}:{}/".format(proxy_auth, proxy_host, proxy_port)
-            }
-        else:
-            self.proxies = {}
 
     def get_coordinates(self, zipcode):
         try:

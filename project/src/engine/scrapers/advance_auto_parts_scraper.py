@@ -1,7 +1,7 @@
 import requests
 
 from .base import BaseStoreLocationScraper
-from project.models import StoreLocation, Merchant
+from src.engine.models import StoreLocation, Merchant
 
 
 class AdvanceAutoPartsScraper(BaseStoreLocationScraper):

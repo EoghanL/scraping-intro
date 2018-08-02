@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
-
-import project.scrapers as scrapers
+import sys
+sys.path.append('/Users/eoghanleddy/Development/scraping-intro')
+import src.engine.scrapers as scrapers
 
 class Command(BaseCommand):
     help = 'python project/manage.py run_scraper Walmart TacoBell --zipstart 02138 --zipend 33477'
