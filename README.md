@@ -151,7 +151,6 @@ This could mean that this a request that queries the API based on form data. Che
 
 [Sending Headers and Form Data with Postman Interceptor](https://drive.google.com/file/d/1Fic6iyeTCpqLpiRbBXzBQQeOjbra2YTm/view)
 
-Chrome Extension
 [Postman Interceptor Chrome Extension](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo?hl=en)
 
 **Parsing Content with BeautifulSoup**
