@@ -170,7 +170,21 @@ In the following video it will help to have the `tj_maxx_scraper` file open as t
 
 [Finding the Appropriate HTML Elements for Selenium](https://drive.google.com/file/d/1agiRbk16oQYUqAtYTBWa25AKkmI_a-wQ/view)
 
+## Docs
+
+Here are links to documentation for a few of the libraries mentioned above.
+
+[Python Requests Library](http://docs.python-requests.org/en/master/)
+
+[Python xmltodict Library](https://github.com/martinblech/xmltodict) - For when responses are in the XML format rather than JSON
+
+[BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+[Selenium](http://selenium-python.readthedocs.io/)
+
+
+
 ## Conclusion
 
 This is by no means a comprehensive list on scraping but hopefully it is a sufficient introduction to make your first foray into
-this wonderful world a little less fraught with peril.
+this wonderful world a little less fraught with peril. Feel free to Slack me with any questions, corrections, concerns, or just suggestions for improvement.

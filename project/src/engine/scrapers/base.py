@@ -110,7 +110,7 @@ class BaseStoreLocationScraper(object):
         )
 
 
-class BaseStoreLocationWebdriverScraper(BaseStoreLocationScraper):
+class BaseStoreLocationWebdriverScraper(BaseStoreLocationScraper):  # This class is for Selenium based scrapers
     def __init__(self, *args, **kwargs):
         super(
             BaseStoreLocationWebdriverScraper, self
