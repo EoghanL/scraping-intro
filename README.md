@@ -110,8 +110,8 @@ Regardless of which way we are using this method we rely on the BeautifulSoup li
 **Selenium**
 
 The award for trickiest and most work intensive method of scraping we use has to be awarded to Selenium.
-This method uses an actual browser to load the webpage which we can then query for specific elements which we can then use to get
-valuable information such as the text content or `href`.
+This method uses an actual browser to load the webpage which we can then query for specific elements that can then get
+valuable information such as the text content or `href` attribute.
 
 Some reasons behind Selenium's learning curve:
   1.) Selenium requires a more in-depth set up than the previous two methods, depending on whether you're using Chrome or Firefox you will either need to have both the path
@@ -159,7 +159,7 @@ This could mean that this a request that queries the API based on form data. Che
 
 **BeautifulSoup**
 
-If the above method has yielded no viable results the second step is to look for the information you're looking for in either pure HTML format or loaded
+If the above method has yielded no viable results the second step is to search for the information you're looking for in either pure HTML format or loaded
 by a script.
 A good way to quickly check if what you're looking for is returned in those formats is through the CMD + F function that lets you search the content of
 responses in Chrome's Dev Tools.
@@ -203,11 +203,13 @@ You can see this string by uncommenting the `ipdb` on line 27 of the file. Then 
 Once the `ipdb` is hit you can check the value of the `stores_list` variable.
 
 Neither BeautifulSoup nor the `response.json()` method and `json.loads(response)` methods were able to parse out the information in a useful format.
-This can be solved by using the `ast.literal_eval` method which can process trees of Python syntax. This is useful because the JSON format is the same as Python dictionary.
+This can be solved by using the `ast.literal_eval` method which can process trees of Python syntax. This is useful because the JSON format is the same as Python dictionary in many ways, including being processable by `literal_eval`.
 Once the method has finished processing the string we can then access the data we need to construct a proper database record.
 
 This scraper is a good example of the fact that the methods of scraping mentioned here will not get the needed result in every situation.
 In most cases though they will enable the retrieval of information that can then be manipulated, parsed, or processed intro a workable format.
 
+[Helpful SO answer on when to use ast.literal_eval](https://stackoverflow.com/questions/29552950/when-to-use-ast-literal-eval)
 
+[Deeper dive on the ast module and its methods](https://stackoverflow.com/questions/29552950/when-to-use-ast-literal-eval)
 
