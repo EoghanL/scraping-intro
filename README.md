@@ -15,9 +15,12 @@
 ## Introduction
 
 As the internet becomes a larger and more complete part of our lives the wealth of data that can be found online grows exponentially.
-This leads to many opportunities where scraping the web can lead to more well informed stock market decisions, an immediate notification of
+This leads to many opportunities where scraping the web can enable more well informed stock market decisions, an immediate notification of
 a price drop on certain items, or even exact identification of minor changes to a webpage. While our upcoming project may only need one of these use
 cases learning scraping can certainly open new solutions to future problems you may encounter.
+
+Run any scraper included in this repository by typing `python project/manage.py run_scraper <SCRAPER_NAME>` into your terminal.
+Check out `project/src/engine/management/commands/run_scraper.py` for the code.
 
 ## Types of Scraping
 
@@ -75,13 +78,13 @@ These requests usually come in two main formats:
       You can manually alter things like latitude, longitude, search radius, and max returned results.
       Changing these can reduce the number of requests you need to make or give you more accurate results to name a couple of outcomes.
       We can see an example of this type of request here - https://www.rei.com/rest/stores?retail=true&dist=7500&limit=1500&visible=true&lat=39.82832&long=-98.5795'
-      Feel free to drop the above link directly into your address bar and try messing around with the query params. See what kind of different responses you get!
+      You can drop the above link directly into your address bar and try changing the query params. See what kind of different responses you get.
       The full scraper can be found in `project/src/engine/scrapers/rei_scraper.py`
 
   2.) The second type of request that falls into this category uses form data and headers in place of query params and requires a bit more work to implement.
       First, the network tab must be used to find a request made to the API you are trying to query.
       From there you can check grab the url, request headers, and form data.
-      Lastly, you must use the `requests` library to structure your request in a way that will be accepted by the API.
+      Lastly, you must use the `requests` library to structure your request with the above information in order to successfully be served data.
       Sounds tedious, thankfully the Postman app has made this process a breeze. Check the screencast in the videos section to see an example of how this works.
       A full scraper can be found in `project/src/engine/scrapers/advanced_auto_parts_scraper.py`
 
@@ -154,6 +157,8 @@ This could mean that this a request that queries the API based on form data. Che
 
 ### Script Parsing
 
+**BeautifulSoup**
+
 If the above method has yielded no viable results the second step is to look for the information you're looking for in either pure HTML format or loaded
 by a script.
 A good way to quickly check if what you're looking for is returned in those formats is through the CMD + F function that lets you search the content of
@@ -184,3 +189,25 @@ Here are links to documentation for a few of the libraries mentioned above.
 
 This is by no means a comprehensive list on scraping but hopefully it is a sufficient introduction to make your first foray into
 this wonderful world a little less fraught with peril. Feel free to Slack me with any questions, corrections, concerns, or just suggestions for improvement.
+
+## Honorable Mentions
+
+**BeautifulSoup**
+
+#####ast.literal_eval
+
+There will be times when the API will serve up the data you need but the format is not parsable through any the above methods.
+One such example can be found in the `meijer_scraper` where the response contained a script with all of the information we needed contained in a script tag.
+The issue is that although the information seemed to be in JSON format it was actually a very long string.
+You can see this string by uncommenting the `ipdb` on line 27 of the file. Then run `python project/manage.py run_scraper Meijer` in the terminal.
+Once the `ipdb` is hit you can check the value of the `stores_list` variable.
+
+Neither BeautifulSoup nor the `response.json()` method and `json.loads(response)` methods were able to parse out the information in a useful format.
+This can be solved by using the `ast.literal_eval` method which can process trees of Python syntax. This is useful because the JSON format is the same as Python dictionary.
+Once the method has finished processing the string we can then access the data we need to construct a proper database record.
+
+This scraper is a good example of the fact that the methods of scraping mentioned here will not get the needed result in every situation.
+In most cases though they will enable the retrieval of information that can then be manipulated, parsed, or processed intro a workable format.
+
+
+
