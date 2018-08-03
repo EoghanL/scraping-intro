@@ -194,7 +194,7 @@ this wonderful world a little less fraught with peril. Feel free to Slack me wit
 
 **BeautifulSoup**
 
-#####ast.literal_eval
+##### ast.literal_eval
 
 There will be times when the API will serve up the data you need but the format is not parsable through any the above methods.
 One such example can be found in the `meijer_scraper` where the response contained a script with all of the information we needed contained in a script tag.
