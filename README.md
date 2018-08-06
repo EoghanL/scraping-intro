@@ -207,9 +207,29 @@ This can be solved by using the `ast.literal_eval` method which can process tree
 Once the method has finished processing the string we can then access the data we need to construct a proper database record.
 
 This scraper is a good example of the fact that the methods of scraping mentioned here will not get the needed result in every situation.
-In most cases though they will enable the retrieval of information that can then be manipulated, parsed, or processed intro a workable format.
+In most cases though they will enable the retrieval of information that can then be manipulated, parsed, or processed into a workable format.
 
 [Helpful SO answer on when to use ast.literal_eval](https://stackoverflow.com/questions/29552950/when-to-use-ast-literal-eval)
 
 [Deeper dive on the ast module and its methods](https://stackoverflow.com/questions/29552950/when-to-use-ast-literal-eval)
 
+
+## Practice Scrapers
+
+There are some scrapers that we did not get to in the course of Finhance's development. They are a great place to get some experience writing scrapers!
+
+[Caribou](https://app.asana.com/0/640019874707162/719041467274301)
+
+[Bashas](https://app.asana.com/0/640019874707162/719041467274274)
+
+[Noodles & Company](https://app.asana.com/0/640019874707162/719041467274279)
+
+[Papa Murphys](https://app.asana.com/0/640019874707162/719041467274285)
+
+[Randalls](https://app.asana.com/0/640019874707162/719041467274275)
+
+[Del Taco](https://app.asana.com/0/640019874707162/719041467274295)
+
+[Toys R Us](https://app.asana.com/0/640019874707162/719041467274290)
+
+[99 Ranch](https://app.asana.com/0/640019874707162/705697441637946)
